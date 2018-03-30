@@ -1,0 +1,135 @@
+@import '../../styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+@include nb-install-component() {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .left {
+        display: flex;
+        width: 100%;
+        order: 0;
+        flex-direction: row;
+    }
+    .right {
+        order: 1;
+        flex-direction: row-reverse;
+    }
+    .logo-containter {
+        display: flex;
+        align-items: center;
+    }
+    .control-item {
+        display: block;
+    }
+    .header-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .navigation {
+            padding-right: nb-theme(padding);
+            font-size: 2.5rem;
+            text-decoration: none;
+            i {
+                display: block;
+            }
+        }
+        .logo {
+            padding: 0 nb-theme(padding);
+            font-size: 1.75rem;
+            font-weight: nb-theme(font-weight-bolder);
+            border-left: 1px solid nb-theme(separator);
+            white-space: nowrap;
+            span {
+                font-weight: nb-theme(font-weight-normal);
+            }
+        }
+    }
+    .toggle-layout /deep/ a {
+        display: block;
+        text-decoration: none;
+        line-height: 1;
+        i {
+            color: nb-theme(color-fg-highlight);
+            font-size: 2.25rem;
+        }
+    }
+    @include media-breakpoint-down(md) {
+        nb-action:not(.toggle-layout) {
+            border: none;
+        }
+        .control-item {
+            display: none;
+        }
+        .toggle-layout {
+            padding: 0;
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        nb-actions {
+            padding: 5px 5px;
+        }
+        nb-action {
+            margin: 10px;
+        }
+        ngx-theme-switcher {
+            display: none;
+        }
+        nb-user /deep/ .user-name {
+            display: inline-flex;
+        }
+        .fa-bell {
+            margin: 16px;
+        }
+        .badge {
+            display: block;
+            position: absolute;
+            margin:14px;
+            top: -20px;
+            right: 4px;
+            line-height: 14px;
+            height: 16px;
+            padding: 0 5px;
+        }
+    }
+    @include media-breakpoint-down(is) {
+        ngx-theme-switcher {
+            display: none;
+        }
+        .header-container {
+            .logo {
+                display: none;
+            }
+        }
+        .toggle-layout {
+            display: inline-flex;
+        }
+        nb-action:not(.toggle-layout) {
+            padding: 0;
+        }
+    }
+    @include media-breakpoint-down(xs) {
+        ngx-theme-switcher {
+            display: none;
+        }
+        .right /deep/ {
+            display: inline-flex;
+        }
+    }
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.badge {
+    display: block;
+    position: absolute;
+    top: -8px;
+    right: 5px;
+    line-height: 14px;
+    height: 16px;
+    padding: 0 5px;
+}
+
+

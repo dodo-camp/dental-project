@@ -1,0 +1,134 @@
+<div class="w3ls-banner">
+    <div class="container">
+        <div class="heading">
+            <h2>Please Enter Your Details</h2>
+            <p>Fill the application form below and submit.</p>
+        </div>
+        <div class="agile-form" style="margin:0 auto">
+            <form action="#" [formGroup]="loginForm">
+                <ul class="field-list">
+                    <li class="name">
+                        <label class="form-label" style="padding-top:20px;"> Name
+                            <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input add" style="margin:0 auto">
+                            <mat-form-field>
+                                <input matInput type="text" formControlName="firstname" placeholder="First Name" required>
+                                <mat-error *ngIf="loginForm.get('firstname').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                            &nbsp;
+                            <mat-form-field>
+                                <input matInput type="text" formControlName="lastname" placeholder="Last Name" required>
+                                <mat-error *ngIf="loginForm.get('lastname').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </li>
+                    <li>
+                        <label class="form-label" style="padding-top:20px"> Phone Number
+                            <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input add">
+                            <mat-form-field>
+                                <input matInput type="number" style="background:white;height:30px;color:black" formControlName="mobile_number" placeholder="Phone Number"
+                                    required>
+                                <mat-error *ngIf="loginForm.get('mobile_number').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </li>
+                    <li>
+                        <label class="form-label"> Gender
+                            <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input">
+                            <select class="form-dropdown" formControlName="gender" required>
+                                <option value="">Gender</option>
+                                <option value="Male"> Male </option>
+                                <option value="Female"> Female </option>
+                                <option value="Transgender"> Transgender </option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label class="form-label"> Citizen
+                            <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input">
+                            <select class="form-dropdown" formControlName="citizen" required>
+                                <option value="">Select Country</option>
+                                <option value="United states"> United states </option>
+                                <option value="Afghanisthan"> Afghanistan </option>
+                                <option value="China"> China </option>
+                                <option value="Indonesia"> Indonesia </option>
+                                <option value="England"> England </option>
+                                <option value="Others"> Others </option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label class="form-label"> Date of Birth
+                            <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input dob">
+                            <div class="input-group">
+                                <input class="form-control" formControlName="dob" placeholder="yyyy-mm-dd" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"
+                                    required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                                        <i class="fa fa-calendar"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <label class="form-label">
+                            Address
+                            <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input add">
+                            <mat-form-field>
+                                <input matInput type="text" formControlName="street_address" placeholder="Street Address " required>
+                                <mat-error *ngIf="loginForm.get('street_address').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput type="text" formControlName="street_address2" placeholder="Street Line 2 " required>
+                                <mat-error *ngIf="loginForm.get('street_address').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput type="text" formControlName="landmark" placeholder="Landmark " required>
+                                <mat-error *ngIf="loginForm.get('landmark').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput type="text" formControlName="city" placeholder="City" required>
+                                <mat-error *ngIf="loginForm.get('city').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput type="text" formControlName="state" placeholder="State / Province " required>
+                                <mat-error *ngIf="loginForm.get('state').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput type="text" formControlName="code" placeholder="Postal / Zip Code " required>
+                                <mat-error *ngIf="loginForm.get('code').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </li>
+                    <li>
+                        <label class="form-label">
+                            Image Upload
+                            <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input">
+                            <input type="file" name="photo" formControlName="image" ng2FileSelect [uploader]="uploader" />
+                            <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                                Upload
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="submit_btn">
+                    <input type="submit" value="Submit" [disabled]="!loginForm.valid" (click)="OnSubmit()">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<ngx-loading [show]="loading"></ngx-loading>
+<h2 class="left" style="font-size:1.5em">Appointment From</h2>
+<br>
+<!---728x90--->
+<div class="booking-form-w3layouts">
+  <!-- Form starts here -->
+  <form [formGroup]="appointmentForm">
+    <h2 class="sub-heading-agileits">Booking Details</h2>
+    <div class="main-flex-w3ls-sectns">
+      <div class="field-agileinfo-spc form-w3-agile-text1">
+        <input id="typeahead-focus" placeholder="Department" formControlName="department" type="text" class="form-control" [(ngModel)]="model"
+          [ngbTypeahead]="search" (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)" #instance="ngbTypeahead">
+      </div>
+      <div class="field-agileinfo-spc form-w3-agile-text2">
+        <input type="text" formControlName="date" name="day" (click)="d.toggle()" placeholder="Date" ngbDatepicker #d="ngbDatepicker"
+          required="">
+      </div>
+    </div>
+    <div class="main-flex-w3ls-sectns">
+      <div class="field-agileinfo-spc form-w3-agile-text1">
+        <select #preferedTime class="form-control" id="preferedTime" (change)="onChangeTime()">
+          <option value="Prefered Time" selected disabled>--Prefered Time--</option>
+          <option *ngFor="let time of prefered_time" [ngValue]="time">{{time}}</option>
+        </select>
+      </div>
+      <div class="field-agileinfo-spc form-w3-agile-text2">
+        <select #preferedMedium class="form-control" id="medium" (change)="onChangeMedium()">
+          <option value="Prefered Time" selected disabled>--Prefered Medium--</option>
+          <option *ngFor="let medium of prefered_medium" [ngValue]="medium">{{medium}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="main-flex-w3ls-sectns">
+      <div class="field-agileinfo-spc form-w3-agile-text1">
+        <p style="color:#fff">Time</p>
+        <ngb-timepicker formControlName="time"></ngb-timepicker>
+      </div>
+      <div class="field-agileinfo-spc form-w3-agile-text1">
+        <p style="color:#fff">Days</p>
+        <br>
+        <table class="table">
+          <tr *ngFor="let day of days">
+            <td>
+              <mat-checkbox (change)="onChange(day, $event.checked)">{{day}}</mat-checkbox>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="field-agileinfo-spc form-w3-agile-text">
+      <textarea formControlName="specialnote" name="Message" placeholder="Any Symptoms..."></textarea>
+    </div>
+    <h3 class="sub-heading-agileits">Personal Details</h3>
+    <div class="main-flex-w3ls-sectns">
+      <div class="field-agileinfo-spc form-w3-agile-text1">
+        <input type="text" name="Name" formControlName="fullname" placeholder="Full Name" disabled value="{{name}}" [(ngModel)]="name" required="">
+      </div>
+      <div class="field-agileinfo-spc form-w3-agile-text2">
+        <input type="text" name="Phone no" formControlName="phone" placeholder="Phone Number" disabled value="{{phone}}" [(ngModel)]="phone" required="">
+      </div>
+    </div>
+    <div class="field-agileinfo-spc form-w3-agile-text">
+      <input type="email" name="Email" formControlName="email" placeholder="Email" value="{{email}}" disabled [(ngModel)]="email" required="">
+    </div>
+    <div class="clear"></div>
+    <input type="submit" value="Submit" (click)="sendEmail()" >
+    <input type="reset" value="Clear Form">
+    <div class="clear"></div>
+  </form>
+  <!--// Form starts here -->
+</div>

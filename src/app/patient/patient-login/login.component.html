@@ -1,0 +1,50 @@
+<body style="background-image:url('http://www.uniwallpaper.com/static/images/maxresdefault_L04IWRV.jpg') center;background-size: cover; background-attachment: fixed;height:100%">
+    <div class="container">
+        <h1 class="title-agile text-center"></h1>
+        <div class="content-w3ls signin">
+            <div class="content-top-agile">
+                <h2>sign in</h2>
+            </div>
+            <div class="content-bottom">
+                <form [formGroup]="loginForm">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <mat-form-field>
+                                <input matInput color="warn" placeholder="Enter your email" formControlName="email" required>
+                                <mat-icon matSuffix color="warn">email</mat-icon>
+                                <mat-error *ngIf="loginForm.get('email').hasError('required')">This field has to be filled</mat-error>
+                                <mat-error *ngIf="loginForm.get('email').hasError('email')">Enter valid email</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-content">
+                        <div class="form-group">
+                            <mat-form-field>
+                                <input matInput color="warn" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password"
+                                    required>
+                                <mat-icon matSuffix color="warn" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                <mat-error *ngIf="loginForm.get('password').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <ul class="list-login">
+                        <li class="switch-agileits">
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                                keep me signed in
+                            </label>
+                        </li>
+                        <li>
+                            <a class="text-right toggle" [routerLink]="['/register/patient']" >sign up</a>
+                        </li>
+                        <li class="clearfix"></li>
+                    </ul>
+                    <div class="wthree-field">
+                        <button id="saveForm" type="submit" (click)="onLoggedin()" [disabled]="!loginForm.valid">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

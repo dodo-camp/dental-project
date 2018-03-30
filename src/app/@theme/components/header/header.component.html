@@ -1,0 +1,47 @@
+<div class="header-container" [class.left]="position === 'normal'" [class.right]="position === 'inverse'">
+  <div class="logo-containter">
+    <a (click)="toggleSidebar()" href="#" class="navigation">
+      <i class="nb-menu"></i>
+    </a>
+    <div class="logo" (click)="goToHome()">Dental
+      <span>Solution</span>
+    </div>
+  </div>
+  <ngx-theme-switcher></ngx-theme-switcher>
+  <nb-actions size="medium" class="header-container" [class.right]="position === 'normal'" [class.left]="position === 'inverse'">
+    <nb-action icon="nb-grid-b" class="toggle-layout" (click)="toggleSettings()"></nb-action>
+    <nb-action *nbIsGranted="['view', 'user']">
+      <div ngbDropdown class="dropdown">
+        <nb-user ngbDropdownToggle id="dropdownBasic1" [name]="name" style="cursor:pointer" picture="../../../../assets/uploads/{{imagePath}}"></nb-user>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-menu-left" style="width:100px;height:80px;background-color:aliceblue;margin-top:10px;padding-left:15px">
+          <li class="text-justify" style="color:blue;font-size:0.89em;cursor:pointer">
+            <i class="fa fa-fw fa-user"></i>Profile
+          </li>
+          <br>
+          <li class="text-justify" style="color:blue;font-size:0.89em;cursor:pointer" (click)="onLoggedout()">
+            <i class="fa fa-fw fa-power-off"></i>Logout
+          </li>
+        </div>
+      </div>
+    </nb-action>
+    <nb-action>
+      <div ngbDropdown class="d-inline-block dropdown" placement="bottom-center">
+        <span class="fa fa-bell" ngbDropdownToggle id="dropdownBasic2" (click)="badgeOff()" style="cursor:pointer">
+          <i *ngIf="count_2 > 0 " class="badge badge-danger">{{count_2}}</i>
+        </span>
+        <div *ngIf="show == true" ngbDropdownMenu aria-labelledby="dropdownBasic2" class="dropdown-menu-left" style="width:240px;height:200px;background-color:aliceblue;margin-top:10px;overflow-y: scroll">
+          <li *ngFor="let notify of ELEMENT_DATA" class="text-justify text-wrap" style="color:blue;font-size:0.89em">Appointment Confirmed By the Dentist for {{notify.department}} on {{notify.date.year}}/{{notify.date.month}}/{{notify.date.day}}
+            at {{notify.time.hour}}:{{notify.time.minute}}
+            <hr>
+          </li>
+        </div>
+        <div *ngIf="show == false" ngbDropdownMenu aria-labelledby="dropdownBasic2" class="dropdown-menu-left" style="width:240px;height:200px;background-color:aliceblue;margin-top:10px;overflow-y: scroll">
+          <h2 style="color:blue;text-align:center;margin-top:50px">No Notifications</h2>
+        </div>
+      </div>
+    </nb-action>
+    <nb-action class="control-item">
+      <nb-search type="rotate-layout" (click)="startSearch()"></nb-search>
+    </nb-action>
+  </nb-actions>
+</div>

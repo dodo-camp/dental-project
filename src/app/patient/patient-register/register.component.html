@@ -1,0 +1,60 @@
+<body style="background-image:url('https://static1.squarespace.com/static/541ca6ace4b09194f7659e16/t/541fb564e4b0a6db31384587/1411364199494/bridge-lake-bokeh-hd-wallpaper.jpg') center;background-size: cover; background-attachment: fixed;height:100%">
+    <div class="container">
+        <h1 class="title-agile text-center"></h1>
+        <div class="content-w3ls signup" style="margin: 0 auto">
+            <div class="content-top-agile">
+                <h2>sign up</h2>
+            </div>
+            <div class="content-bottom">
+                <form [formGroup]="signupForm">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <mat-form-field>
+                                <input matInput color="warn" placeholder="Enter your email" formControlName="email" required>
+                                <mat-icon matSuffix color="warn">email</mat-icon>
+                                <mat-error *ngIf="signupForm.get('email').hasError('required')">This field has to be filled</mat-error>
+                                <mat-error *ngIf="signupForm.get('email').hasError('email')">Enter valid email</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-content">
+                        <div class="form-group">
+                            <mat-form-field>
+                                <input matInput color="warn" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password"
+                                    formControlName="password" required>
+                                <mat-icon matSuffix color="warn" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                <mat-error *ngIf="signupForm.get('password').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-content">
+                        <div class="form-group">
+                            <mat-form-field>
+                                <input matInput color="warn" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" (keyup)="onKey($event)"
+                                    formControlName="repeatpass" required>
+                                <mat-icon matSuffix color="warn" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                <mat-error *ngIf="signupForm.get('repeatpass').hasError('required')">This field has to be filled</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <ul class="list-login">
+                        <li class="switch-agileits" style="visibility:hidden">
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                                keep me signed in
+                            </label>
+                        </li>
+                        <li>
+                            <a class="text-right close" [routerLink]="['/login/patient']">sign in</a>
+                        </li>
+                        <li class="clearfix"></li>
+                    </ul>
+                    <div class="wthree-field">
+                        <button id="saveForm" type="submit" (click)="onRegister()" [disabled]="!signupForm.valid">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

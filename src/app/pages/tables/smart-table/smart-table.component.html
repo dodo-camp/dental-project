@@ -1,0 +1,38 @@
+<h2 class="left header">Appointment History</h2>
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let row;let rIndex = index;"> {{rIndex + 1}} </mat-cell>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="department">
+      <mat-header-cell *matHeaderCellDef> Department </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.department}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef> Date of Appointment </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.date.year}}/{{element.date.month}}/{{element.date.day}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="time">
+      <mat-header-cell *matHeaderCellDef> Time of Appointment </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.time.hour}}:{{element.time.minute}}:{{element.time.second}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="symptom">
+      <mat-header-cell *matHeaderCellDef> Symptom </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.specialnote}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>

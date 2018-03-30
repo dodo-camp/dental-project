@@ -1,0 +1,75 @@
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+
+.chat-box {
+    padding-left: 250px;
+}
+.chat {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		margin-bottom: 10px;
+		padding-bottom: 5px;
+		border-bottom: 1px dotted #B3A9A9;
+		.chat-body {
+			p {
+				margin: 0;
+				color: #777777;
+			}
+		}
+	}
+}
+.chat-center {
+	padding-top: 80px;
+}
+.panel-body {
+    background-color: wheat;
+	overflow-y: scroll;
+    height: 400px;
+    width: 350px;
+}
+small{
+	font-size: 0.67rem;
+	margin-right:1px;
+}
+@include media-breakpoint-down(xs) {
+    .panel-body {
+        background-color: wheat;
+        overflow-y: scroll;
+        height: 400px;
+        width: auto;
+	}
+	small{
+		font-size: 0.60rem;
+		margin-right:2px;
+	}
+  }
+  @include media-breakpoint-down(sm) {
+    .panel-body {
+        background-color: wheat;
+        overflow-y: scroll;
+        height: 400px;
+        width: auto;
+	}
+	small{
+		font-size: 0.60rem;
+		margin-right:2px;
+	}
+  }
+@include media-breakpoint-down(sm) {
+	.chat-box {
+		padding-left: 0px;
+		width: auto;
+    }
+}
+@include media-breakpoint-down(xs) {
+	.chat-box {
+		padding-left: 0px;
+		width:auto;
+    }
+}
+.round-btn {
+    border: none;
+    border-radius: 50%;
+}

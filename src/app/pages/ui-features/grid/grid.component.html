@@ -1,0 +1,205 @@
+<div class="container">
+
+  <!-- Page Heading -->
+  <h1 class="my-4">Dental
+    <small>Articles</small>
+  </h1>
+
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <a (click)="ngxSmartModalService.getModal('undismissable').open()" style="cursor:pointer">
+          <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1469278864_Dental%20Monsoon.png.jpg" alt="">
+        </a>
+        <div class="card-body">
+          <h4 class="card-title" (click)="ngxSmartModalService.getModal('undismissable').open()">
+            <a style="color:turquoise;cursor:pointer">Project One</a>
+          </h4>
+          <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt?
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <a (click)="ngxSmartModalService.getModal('modal-2').open()" style="cursor:pointer">
+          <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1468846588_pediatric-dentistry-.jpg" alt="">
+        </a>
+        <div class="card-body">
+          <h4 class="card-title" (click)="ngxSmartModalService.getModal('modal-2').open()">
+            <a style="color:turquoise;cursor:pointer">Project Two</a>
+          </h4>
+          <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <a (click)="ngxSmartModalService.getModal('modal-3').open()">
+          <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1400246579_dr%20sunali-dental-implant.jpg" alt="">
+        </a>
+        <div class="card-body">
+          <h4 class="card-title" (click)="ngxSmartModalService.getModal('modal-3').open()">
+            <a style="color:turquoise;cursor:pointer">Project Three</a>
+          </h4>
+          <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio
+            velit nostrum</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <a href="#">
+          <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1461931224_Sunali-website2.jpg" alt="">
+        </a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">Project Four</a>
+          </h4>
+          <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <a href="#">
+          <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1426850229_Healthy-Foodd[1].jpg" alt="">
+        </a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">Project Five</a>
+          </h4>
+          <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <a href="#">
+          <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1461930726_Sunali-website1.jpg" alt="">
+        </a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">Project Six</a>
+          </h4>
+          <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident,
+            perferendis rem illo</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <a href="#">
+          <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1426247786_Dental-Crowns.jpg" alt="">
+        </a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">Project Seven</a>
+          </h4>
+          <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <a href="#">
+          <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1453385441_dental%20implant.jpg" alt="">
+        </a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">Project Eight</a>
+          </h4>
+          <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius adipisci </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--modals-->
+</div>
+
+<ngx-smart-modal #myModal [dismissable]="backDisable" [customClass]="'modal-lg'" identifier="undismissable">
+  <h1 style="color:turquoise">Five Dental Care Tips For Monsoon Season</h1>
+  <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1469278864_Dental%20Monsoon.png.jpg" alt="">
+  <p class="text-justify">The Monsoon season is the one those seasons which alleviate us from the warmth of an amplified summer. With the change
+    in weather and temperature come a number of diseases and damages. Monsoon season not only brings along the most common
+    diseases such as malaria, dengue, and cholera but also the severe dental problems and issues. The effect of weather change
+    plays an important role in the tooth condition. Some people tend to face pain and trouble in their teeth in the monsoon
+    season. So let us discuss some dental tips to follow during monsoon season: 1) CHANGE YOUR TOOTHBRUSH : Brushing your
+    teeth plays a vital role in personal dental hygiene which helps in removing plaque effectively. Hence, it is of prime
+    importance to maintain the correct toothbrush and replace it often with a new one and maintain it for the oral hygiene.
+    When the bristles get frayed, it is the peak time to replace your brush with a new toothbrush. 2) EAT THE SEASON'S BEST
+    : Always remember to stock your fridge with healthy and fresh vegetables and fruits available in the monsoon season.
+    This will ensure your family is eating the healthy food which will limit them to indulge in unhealthy snacks options.
+    The nutritionally beneficial fruits and vegetables in monsoon are apples, pears, strawberries, curd and oats. 3) RENEW
+    YOUR FLOSS SUPPLY : The suggested floss length is 18 inches per flossing session. With a day by day flossing plan, that
+    means approximately 45 feet of floss a month! So, stock up to abstain from running out. 4) KEEP A CHECK ON EXPIRY DATE
+    OF MOUTHWASH : Everything comes with an expiry date and so is your mouthwash! So always use the mouthwash before its
+    expiry date to get its maximum benefit and effectiveness. 5) MAKE AN APPOINTMENT WITH DENTIST : Regular dental check-ups
+    are a must for every individual. It not only keeps your teeth in a healthy state but will also indicate any early stage
+    problem. So make sure to follow the above dental care tips to have that everlasting smile on your face!</p>
+  <button class="btn btn-warning" (click)="myModal.close()">Close</button>
+</ngx-smart-modal>
+
+<ngx-smart-modal #myModal2 [dismissable]="backDisable" identifier="modal-2">
+  <h1 style="color:turquoise">Root Canal Treatment for Kids</h1>
+  <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1468846588_pediatric-dentistry-.jpg" alt="">
+  <p class="text-justify">If you think your child is too young to need root canal treatment, think again There is no age limit for this treatment.
+    If his/her primary (baby) teeth have been injured, or if decay has advanced deep into the roots of your child's teeth,
+    a root canal treatment to stabilise teeth may be needed. Root canal treatment removes infection from the pulp, the living
+    tissue that is found inside the tooth's roots. The pulp contains the tooth's nerves, so tooth pain is often an indication
+    that decay has moved into the pulp. When performing root canal procedures on children one must keep in mind that the
+    primary teeth's root will be reabsorbed by the body . This is a normal process , on absorbtion of the primary teeth's
+    root the body makes room for the permanent teeth . Injury resulting in loss of young permanent teeth can be even more
+    troublesome, because neither tooth development, nor jaw growth is complete. If teeth are lost prematurely, a malocclusion
+    ("mal" - bad: "occlusion" - bite) can easily result. The permanent teeth take the place of primary teeth , as the child
+    nears the age of 6 to 7 years. Tooth replacement techniques such as partial dentures or dental implants may not necessarily
+    work for children since the tooth development and jaw growth are rapidly taking place. For functional and cosmetic reasons
+    ,it is best to opt for an endodontic or in layman term root canal treatment in case of young patients who are experiencing
+    tooth decay or infection . When a child experience tooth pain when consuming something hot or cold , or , sweet and acidic
+    foods, in such cases it can be said that the infection may be minor and can be easily treated. However if the child experiences
+    pain constantly or throbbing pain regardless of stimulus , it may be the indicator of an extensive infection in the pulp
+    and the surrounding area . In the event of a fall if a baby's teeth are injured , the teeth may develop discoloration.
+    The discoloration may vary from yellow to dark grey. Discoloration is an indicator of injury to the pulp tissue inside
+    the tooth's root . Dark Gray discoloration often indicates that the pulp tissues have died. In such cases root canal
+    treatment is needed to remove the dead tissue. If a tooth is completely knocked out of the child's mouth, most dentists
+    agree that it should not be replanted because of the risk of damage to the developing tooth underneath. Root canal treatment
+    for baby teeth is a better choice than tooth removal if at all possible. It helps a child retain full function of their
+    teeth, jaws and tongue, preventing speech problems, and it helps guide the permanent teeth into their proper places.
+    smile on your face!</p>
+  <button class="btn btn-warning" (click)="myModal2.close()">Close</button>
+</ngx-smart-modal>
+
+<ngx-smart-modal #myModal3 [dismissable]="backDisable" identifier="modal-3">
+  <h1 style="color:turquoise">Dental Implants</h1>
+  <img class="card-img-top" src="http://www.drsunalidentalsolutions.com/resize/1400246579_dr%20sunali-dental-implant.jpg" alt="">
+  <span class="text-justify">Dental implants are a wonderful thing. Theyâ€™re loved by dentists and patients because of their longevity, natural appearance
+    and ability to restore function to speaking and eating. But how much do you really know about dental implants? You might
+    know the basic facts about the dental implant procedure and how much they cost, but there are several other fun, interesting
+    and obscure facts you may not know. Here are five dental implant facts:
+    <ul style="list-style-type:none">
+      <li>1. Dental implants have the highest success rate of any tooth replacement solution.Other tooth replacement solutions
+        like bridges, crowns and dentures have a shelf life. Crowns and bridge can last anywhere from five to 10 years, while
+        dentures may need to be replaced or adjusted after seven years. Also, even if a bridge, crown or denture lasts a
+        while, it may not be successful when it comes to eating, drinking or speaking. Dental implants, on the other hand,
+        last forever, have a 98% success rate and give you all the function and look of your natural teeth.</li>
+      <li>2. Dental implants canâ€™t get cavities. Itâ€™s a common question by people considering dental implants: can my implant
+        get cavities? In short, no. Since itâ€™s made out of an artificial material, it canâ€™t decay like your natural teeth.
+        Itâ€™s still important to clean the gums and teeth around the implant, however.</li>
+      <li>3. Dental implants are made from the same material used by NASA. Did you know the titanium used in most dental implants
+        is the same type of metal used in space shuttles, rockets and guided missiles? Titanium and titanium alloy are stronger
+        and lighter than steel, ensuring your implant will last a lifetime.</li>
+      <li>4. Dental implants make your jawbone stronger than ever. Because they donâ€™t fuse to the bone in your mouth, teeth
+        replacement solutions like bridges and dentures actually weaken your jawbone. Dental implants strengthen it due to
+        the fact titanium has biologically fusing properties associated with it that spur bone growth.</li>
+      <li>5. You can get dental implants at any age. You can get a dental implant whether youâ€™re 16 or 86. As long as your
+        mouth is healthy, your teeth are done growing and a dentist deems you an ideal candidate, you can get dental implants
+        at any age.</li>
+    </ul>
+  </span>
+  <button class="btn btn-warning" (click)="myModal3.close()">Close</button>
+</ngx-smart-modal>
