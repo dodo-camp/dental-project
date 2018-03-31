@@ -3,6 +3,7 @@ import { TreeModel } from 'ng2-tree';
 import { ActivatedRoute, Params, Router, Data } from '@angular/router';
 import { ChatService } from './chat.service';
 import * as io from "socket.io-client";
+import * as decode from 'jwt-decode';
 
 @Component({
   selector: 'ngx-tree',
@@ -24,10 +25,10 @@ export class TreeComponent {
   constructor(private chatService: ChatService, private router: Router) { }
 
   ngOnInit() {
-    /*  const token = localStorage.getItem('infoToken');
-      const tokenPayload = decode(token);
-      this.userName = tokenPayload.firstname;
-      this.email = tokenPayload.email; */
+    const token = localStorage.getItem('infoToken');
+    const tokenPayload = decode(token);
+    this.userName = tokenPayload.firstname;
+    this.email = tokenPayload.email;
 
     this.newUser.email = this.email;
     this.newUser.nickname = this.userName;

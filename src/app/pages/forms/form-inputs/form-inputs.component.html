@@ -54,18 +54,18 @@
     <h3 class="sub-heading-agileits">Personal Details</h3>
     <div class="main-flex-w3ls-sectns">
       <div class="field-agileinfo-spc form-w3-agile-text1">
-        <input type="text" name="Name" formControlName="fullname" placeholder="Full Name" disabled value="{{name}}" [(ngModel)]="name" required="">
+        <input type="text" name="Name" formControlName="fullname" placeholder="Full Name" value="{{name}}" [(ngModel)]="name" required="">
       </div>
       <div class="field-agileinfo-spc form-w3-agile-text2">
-        <input type="text" name="Phone no" formControlName="phone" placeholder="Phone Number" disabled value="{{phone}}" [(ngModel)]="phone" required="">
+        <input type="text" name="Phone no" formControlName="phone" placeholder="Phone Number" value="{{phone}}" [(ngModel)]="phone" required="">
       </div>
     </div>
     <div class="field-agileinfo-spc form-w3-agile-text">
-      <input type="email" name="Email" formControlName="email" placeholder="Email" value="{{email}}" disabled [(ngModel)]="email" required="">
+      <input type="email" name="Email" formControlName="email" placeholder="Email" value="{{email}}" [(ngModel)]="email" required="">
     </div>
     <div class="clear"></div>
     <input type="submit" value="Submit" (click)="sendEmail()" >
-    <input type="reset" value="Clear Form">
+    <input (click)="resetForm()" type="reset" value="Clear Form">
     <div class="clear"></div>
   </form>
   <!--// Form starts here -->

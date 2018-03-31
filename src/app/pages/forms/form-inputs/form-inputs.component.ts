@@ -125,4 +125,9 @@ export class FormInputsComponent {
     })
     this.appointmentForm.reset();
   }
+
+  resetFrom() {
+    this.appointmentForm.reset();
+  }
+
 }

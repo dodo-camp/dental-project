@@ -1,15 +1,38 @@
-.header-title
-{
-  text-align: center;
-  color:#00bfff;
-}
+body{
+  background:#ACD7E5;
+ }
+ .address-icon i{
+   font-size: 36px;
+   line-height: 32px;
+ }
+ .form-row input{
+  border: 1px solid #000000;
+ }
+ .form-group textarea {
+  border: 1px solid #000000;
+ }
+ .icons i{
+   color: #fff;
+   padding: 8px 0px;
+   text-align: center;
+   height: 30px;
+   width: 30px;
+   margin-right: 5px;
+ }
+ .fa-facebook{
+   background-color: #3A5A99; 
+ }
+ .fa-twitter{
+   background-color: #39CBFA;
+ }
+ .fa-linkedin{
+   background-color: #3D99C0;
+ }
+ .fa-github{
+   background-color: #000;
+ }
 
-#tip 
-{
-    display:none;  
-}
-
-.fadeIn
+ .fadeIn
 {
   animation-duration: 3s;
 }
@@ -46,10 +69,6 @@
   transition:background 0.5s;   
 }
 
-.second-portion
-{
-  margin-top:50px; 
-}
 
 .box > .icon { text-align: center; position: relative; }
 .box > .icon > .image { position: relative; z-index: 2; margin: auto; width: 88px; height: 88px; border: 8px solid white; line-height: 88px; border-radius: 50%; background: #00bfff; vertical-align: middle; }

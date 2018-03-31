@@ -11,7 +11,7 @@ server.listen(1996);
 // socket io
 io.on('connection', function (socket) {
   console.log('User connected');
-  socket.on('disconnect', function() {
+  socket.on('disconnect', function () {
     console.log('User disconnected');
   });
   socket.on('save-message', function (data) {
@@ -21,7 +21,7 @@ io.on('connection', function (socket) {
 });
 
 /* GET ALL CHATS */
-router.get('/:email', function(req, res, next) {
+router.get('/:email', function (req, res, next) {
   Chat.find({ email: req.params.email }, function (err, chats) {
     if (err) return next(err);
     res.json(chats);
@@ -29,7 +29,7 @@ router.get('/:email', function(req, res, next) {
 });
 
 /* GET SINGLE CHAT BY ID */
-router.get('/:id', function(req, res, next) {
+router.get('/:id', function (req, res, next) {
   Chat.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -37,7 +37,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 /* SAVE CHAT */
-router.post('/', function(req, res, next) {
+router.post('/', function (req, res, next) {
   Chat.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -45,7 +45,7 @@ router.post('/', function(req, res, next) {
 });
 
 /* UPDATE CHAT */
-router.put('/:id', function(req, res, next) {
+router.put('/:id', function (req, res, next) {
   Chat.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -53,11 +53,12 @@ router.put('/:id', function(req, res, next) {
 });
 
 /* DELETE CHAT */
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', function (req, res, next) {
   Chat.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
+
 
 module.exports = router;

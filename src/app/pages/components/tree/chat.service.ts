@@ -21,10 +21,10 @@ export class ChatService {
 
   showChat(id) {
     return new Promise((resolve, reject) => {
-        this.http.get('/chat/' + id)
-          .map(res => res.json())
-          .subscribe(res => {
-            resolve(res)
+      this.http.get('/chat/' + id)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res)
         }, (err) => {
           reject(err);
         });
@@ -33,36 +33,36 @@ export class ChatService {
 
   saveChat(data) {
     return new Promise((resolve, reject) => {
-        this.http.post('/chat', data)
-          .map(res => res.json())
-          .subscribe(res => {
-            resolve(res);
-          }, (err) => {
-            reject(err);
-          });
+      this.http.post('/chat', data)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
     });
   }
 
   updateChat(id, data) {
     return new Promise((resolve, reject) => {
-        this.http.put('/chat/'+id, data)
-          .map(res => res.json())
-          .subscribe(res => {
-            resolve(res);
-          }, (err) => {
-            reject(err);
-          });
+      this.http.put('/chat/' + id, data)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
     });
   }
 
   deleteChat(id) {
     return new Promise((resolve, reject) => {
-        this.http.delete('/chat/'+id)
-          .subscribe(res => {
-            resolve(res);
-          }, (err) => {
-            reject(err);
-          });
+      this.http.delete('/chat/' + id)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
     });
   }
 
