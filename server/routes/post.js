@@ -5,7 +5,7 @@ var jwt = require('jsonwebtoken');
 var nodemailer = require("nodemailer");
 var multer = require('multer');
 
-var DIR = '../src/assets/uploads';
+var DIR = '../dist/assets/images';
 var upload = multer({ dest: DIR }).single('photo');
 
 var config = require('../db/database');
@@ -46,12 +46,12 @@ router.post('/send', function (req, res) {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'mukherjeedhruv1@gmail.com',
-            pass: 'dhruvmukherjeedhruv'
+            user: 'dental.solution2018@gmail.com',
+            pass: 'dental-solution'
         }
     });
     const mailOptions = {
-        from: 'mukherjeedhruv1@gmail.com',
+        from: 'dental.solution2018@gmail.com',
         to: 'dhruvm1@rediffmail.com',
         subject: 'Appointment',
         html: '<p> Full Name: <b>' + req.body.fullname + '</b></p>' + '<br/>' + '<p>Phone: <b>' + req.body.phone + '</b></p>' + '<br/>' + '<p>email: <b>' + req.body.email + '</b></p>' + '<br/>' + '<p>Department: <b>' + req.body.department + '</b></p>' + '<br/>' + '<p>Day: <b>' + req.body.day + '</b></p>' + '<br/>' + '<p>Prefered Time: <b>' + req.body.preferedTime + '</b></p>' + '<br/>' + '<p>Time: <b>' + req.body.time.hour + '</b> hours ' + '<b>' + req.body.time.minute + '</b> minutes </p>' + '<br/>' + '<p>Special Note: <b>' + req.body.specialnote + '</b></p>' + '<br/>' + '<p>Medium to Contact: <b>' + req.body.preferedMedium + '</b></p>' + '<br><br><a target=_blank href=\"' + authenticationURL + '\">Confirm Appointment</a>'

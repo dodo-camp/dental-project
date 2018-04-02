@@ -17,7 +17,6 @@ export class PatientInfoService {
         };
         this.http.post('/api/storePatientInformation', info, httpOptions).subscribe(response => {
             if (response[0].success == true) {
-                localStorage.setItem('infoToken',response[0].infoToken);
                 if (localStorage.getItem('firstTime') == null) {
                     this.router.navigate(['/login/patient']);
                     this.loading = false;

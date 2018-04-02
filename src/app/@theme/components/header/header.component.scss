@@ -73,13 +73,10 @@
             margin: 10px;
         }
         ngx-theme-switcher {
-            display: none;
+            display: inline-flex;
         }
         nb-user /deep/ .user-name {
             display: inline-flex;
-        }
-        .fa-bell {
-            margin: 16px;
         }
         .badge {
             display: block;
@@ -94,7 +91,7 @@
     }
     @include media-breakpoint-down(is) {
         ngx-theme-switcher {
-            display: none;
+            display: block;
         }
         .header-container {
             .logo {
@@ -110,10 +107,11 @@
     }
     @include media-breakpoint-down(xs) {
         ngx-theme-switcher {
-            display: none;
+            display: block;
         }
         .right /deep/ {
             display: inline-flex;
+            margin:5px;
         }
     }
 }

@@ -34,6 +34,7 @@ export class NotificationService {
         this.http.post<Element[]>('/api/get_history_data_notification', obj).subscribe(data => {
             if (data.length != 0) {
                 this.data_subject.next(data);
+                this.change_notify_to_true();
             }
         }, error => {
             console.log(error);

@@ -49,14 +49,13 @@ export class HeaderComponent implements OnInit {
     });
     setInterval(() => {
       this.notify_service.get_history_data(this.count);
-      this.notify_service.change_notify_to_true();
     }, 10000);
 
     if (localStorage.getItem('infoToken') != null) {
       const token = localStorage.getItem('infoToken');
       const tokenPayload = decode(token);
       this.name = tokenPayload.firstname;
-      this.imagePath = tokenPayload.image.substring(22);
+      this.imagePath = tokenPayload.image.substring(21);
     }
 
   }
@@ -82,6 +81,10 @@ export class HeaderComponent implements OnInit {
 
   startSearch() {
     this.analyticsService.trackEvent('startSearch');
+  }
+
+  ToProfile() {
+    this.router.navigate(['/pages/profile']);
   }
 }
 

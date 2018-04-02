@@ -11,8 +11,8 @@ const routes: Routes = [{
     path: 'dashboard',
     component: DashboardComponent,
   }, {
-    path: 'ui-features',
-    loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
+    path: 'features',
+    loadChildren: './features/ui-features.module#UiFeaturesModule',
   }, {
     path: 'components',
     loadChildren: './components/components.module#ComponentsModule',
@@ -28,9 +28,13 @@ const routes: Routes = [{
   }, {
     path: 'appointment',
     loadChildren: './forms/forms.module#FormsModule',
+  },
+  {
+    path: 'profile',
+    loadChildren: './profile/profile.module#ProfileModule',
   }, {
-    path: 'tables',
-    loadChildren: './tables/tables.module#TablesModule',
+    path: 'records',
+    loadChildren: './records/tables.module#TablesModule',
   }, {
     path: '',
     redirectTo: 'dashboard',

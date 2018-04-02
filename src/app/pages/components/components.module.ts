@@ -5,7 +5,7 @@ import { ToasterModule } from 'angular2-toaster';
 import { HttpModule } from '@angular/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ThemeModule } from '../../@theme/theme.module';
-import { ChatService } from './tree/chat.service';
+import { ChatService } from './chat/chat.service';
 import { ComponentsRoutingModule, routedComponents } from './components-routing.module';
 
 @NgModule({

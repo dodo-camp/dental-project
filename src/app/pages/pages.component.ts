@@ -1,5 +1,4 @@
-import { Component,OnInit } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { MENU_ITEMS } from './pages-menu';
 
 @Component({
@@ -12,7 +11,8 @@ import { MENU_ITEMS } from './pages-menu';
   `,
 })
 export class PagesComponent implements OnInit {
-  ngOnInit(){
+
+  ngOnInit() {
     localStorage.removeItem('jwtToken');
   }
   menu = MENU_ITEMS;

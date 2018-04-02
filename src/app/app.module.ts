@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashAuthGuard } from './shared/guard/dashauth.guard';
 import { AuthGuard } from './shared/guard/auth.guard';
+import { LoginAuthGuard } from './shared/guard/loginauth.guard';
 import 'hammerjs';
 import 'mousetrap';
 
@@ -40,6 +41,7 @@ import 'mousetrap';
   providers: [
     DashAuthGuard,
     AuthGuard,
+    LoginAuthGuard,
     { provide: APP_BASE_HREF, useValue: '/' },
   ],
 })

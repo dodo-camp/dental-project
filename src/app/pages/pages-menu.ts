@@ -64,7 +64,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Query',
     icon: 'nb-email',
-    link: '/pages/components/tree'
+    link: '/pages/components/chat'
     /*children: [
       {
         title: 'Tree',
@@ -104,7 +104,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Appointment History',
-        link: '/pages/tables/smart-table',
+        link: '/pages/records/appointment-history',
       },
       {
         title: 'Statistics',
@@ -136,44 +136,22 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Dental Camps',
-        link: '/pages/ui-features/buttons',
+        link: '/pages/features/buttons',
       },
       {
         title: 'Dental Article',
-        link: '/pages/ui-features/grid',
+        link: '/pages/features/grid',
       }
     ],
   },
   {
     title: 'Contact Us',
     icon: 'nb-phone',
-    link: '/pages/ui-features/popovers',
+    link: '/pages/features/contact-us',
   },
   {
     title: 'Our Dentist',
     icon: 'socicon-teamspeak',
-    link: '/pages/ui-features/tabs',
-  },
-  {
-    title: 'Auth',
-    icon: 'nb-locked',
-    children: [
-      {
-        title: 'Login',
-        link: '/login/patient',
-      },
-      {
-        title: 'Register',
-        link: '/auth/register',
-      },
-      {
-        title: 'Request Password',
-        link: '/auth/request-password',
-      },
-      {
-        title: 'Reset Password',
-        link: '/auth/reset-password',
-      },
-    ],
-  },
+    link: '/pages/features/tabs',
+  }
 ];
