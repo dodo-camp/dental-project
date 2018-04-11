@@ -28,14 +28,13 @@ import 'mousetrap';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
     CdkTableModule,
     HttpClientModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     NgbDropdownModule.forRoot(),
     ThemeModule.forRoot(),
-    CoreModule.forRoot(),
+    CoreModule.forRoot()
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -13,8 +13,13 @@ export const MY_NATIVE_FORMATS = {
     dateA11yLabel: { year: 'numeric', month: 'long', day: 'numeric' },
     monthYearA11yLabel: { year: 'numeric', month: 'long' },
 };
+import { ProfileService } from './profile.service';
 import { profileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
+import { NgxSmartModalModule, NgxSmartModalService } from 'ngx-smart-modal';
+import {MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
     imports: [
@@ -28,7 +33,11 @@ import { ProfileComponent } from './profile.component';
         NgbModule.forRoot(),
         MatSnackBarModule,
         FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        NgxSmartModalModule.forChild()
     ],
-    declarations: [ProfileComponent],
+    declarations: [ProfileComponent,FileSelectDirective],
+    providers:[NgxSmartModalService,ProfileService]
 })
 export class ProfileModule { }

@@ -15,3 +15,9 @@ body {
     padding-right: 15px;
     float: left;
   }
+  .table {
+      margin: 0 auto;
+  }
+  ::ng-deep .cdk-overlay-container{
+    z-index: 1200 !important;
+}

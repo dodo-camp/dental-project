@@ -14,6 +14,8 @@ import { LoginAuthGuard } from './shared/guard/loginauth.guard';
 
 const routes: Routes = [
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule', canActivate: [DashAuthGuard] },
+  { path: 'dentist-pages', loadChildren: 'app/dentist-page/dentist-pages.module#DentistPagesModule'},
+  { path: 'admin/dentist/login', loadChildren: 'app/dentists/dentist-login/dentist-login.module#DentistLoginModule'},
   { path: 'login/patient', loadChildren: 'app/patient/patient-login/login.module#LoginModule', canActivate: [LoginAuthGuard] },
   { path: 'register/patient', loadChildren: 'app/patient/patient-register/register.module#RegisterModule' },
   { path: 'patient/detail', loadChildren: 'app/patient/patient-information/patient-info.module#PatientInfoModule', canActivate: [AuthGuard] },

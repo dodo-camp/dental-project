@@ -14,7 +14,7 @@ import { PatientInfoService } from './patient-info.service';
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 
-const URL = 'http://localhost:3535/api/upload';
+const URL = 'http://localhost:2018/api/upload';
 
 @Component({
     selector: 'app-login',

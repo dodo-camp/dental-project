@@ -23,7 +23,7 @@ app.use('/api', post);
 app.use('/api', get);
 app.use('/chat', chat);
 
-var port = normalizePort(process.env.PORT || '3535');
+var port = normalizePort(process.env.PORT || '2018');
 app.set('port', port);
 
 var server = http.createServer(app);

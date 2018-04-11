@@ -7,14 +7,16 @@ import { Subject } from 'rxjs/Subject';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Params, Router, Data } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerConfig, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { MatInputModule, MatSelectModule, MatFormFieldModule, ErrorStateMatcher } from '@angular/material';
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
+import { NgxSmartModalService } from 'ngx-smart-modal';
+import { ProfileService } from './profile.service';
 
 import * as decode from 'jwt-decode';
 
-const URL = 'http://localhost:3535/api/upload';
+const URL = 'http://localhost:2018/api/upload';
 
 @Component({
     selector: 'ngx-tables',
@@ -22,6 +24,9 @@ const URL = 'http://localhost:3535/api/upload';
     styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
+    @ViewChild('myModal') myModal: any;
+    @ViewChild('myModal2') myModal2: any;
+
     newItem = {
         EndTime: null,
         StartTime: null
@@ -35,16 +40,35 @@ export class ProfileComponent {
     dob: { year: string, month: string, day: string };
     gender: string;
     country: string;
-    address_1: string;
-    address_2: string;
+    address1: string;
+    address2: string;
     state: string;
     city: string;
     code: string;
 
+    imagePath2: string;
+    firstname2: string;
+    lastname2: string;
+    email2: string;
+    phone2: string;
+    dob2: { year: string, month: string, day: string };
+    gender2: string;
+    country2: string;
+    address12: string;
+    address22: string;
+    state2: string;
+    city2: string;
+    code2: string;
+
 
     loginForm: FormGroup;
+    changeForm: FormGroup;
+    emailChange: FormGroup;
 
-    constructor(private fb: FormBuilder, private router: Router, private http: Http, private el: ElementRef) { }
+    constructor(private fb: FormBuilder, private router: Router, private http: Http, private el: ElementRef, public ngxSmartModalService: NgxSmartModalService, private change_profile: ProfileService, private config: NgbDatepickerConfig) {
+        config.minDate = { year: 1900, month: 1, day: 1 };
+        config.maxDate = { year: 2099, month: 12, day: 31 };
+    }
 
     public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'photo' });
 
@@ -56,19 +80,20 @@ export class ProfileComponent {
         if (localStorage.getItem('infoToken') != null) {
             const token = localStorage.getItem('infoToken');
             const tokenPayload = decode(token);
-            this.firstname = tokenPayload.firstname;
-            this.lastname = tokenPayload.lastname;
+            this.firstname = this.firstname2 = tokenPayload.firstname;
+            this.lastname = this.lastname2 = tokenPayload.lastname;
             this.email = tokenPayload.email;
             this.gender = tokenPayload.gender;
-            this.dob = tokenPayload.dob;
-            this.address_1 = tokenPayload.street_address;
-            this.address_2 = tokenPayload.street_address2;
-            this.phone = tokenPayload.mobile_number;
-            this.country = tokenPayload.citizen;
-            this.code = tokenPayload.code;
-            this.city = tokenPayload.city;
-            this.state = tokenPayload.state;
+            this.dob = this.dob2 = tokenPayload.dob;
+            this.address1 = this.address12 = tokenPayload.street_address;
+            this.address2 = this.address22 = tokenPayload.street_address2;
+            this.phone = this.phone2 = tokenPayload.mobile_number;
+            this.country = this.country2 = tokenPayload.citizen;
+            this.code = this.code2 = tokenPayload.code;
+            this.city = this.city2 = tokenPayload.city;
+            this.state = this.state2 = tokenPayload.state;
             this.imagePath = tokenPayload.image.substring(21);
+            this.imagePath2 = tokenPayload.image;
         }
 
         this.loginForm = this.fb.group({
@@ -87,34 +112,27 @@ export class ProfileComponent {
             code: new FormControl('', [Validators.required]),
         });
 
+        this.changeForm = this.fb.group({
+            firstname2: new FormControl('', [Validators.required]),
+            lastname2: new FormControl('', [Validators.required]),
+            phone2: new FormControl('', [Validators.required]),
+            country2: new FormControl('', [Validators.required]),
+            dob2: new FormControl('', [Validators.required]),
+            address12: new FormControl('', [Validators.required]),
+            address22: new FormControl('', [Validators.required]),
+            city2: new FormControl('', [Validators.required]),
+            state2: new FormControl('', [Validators.required]),
+            zip2: new FormControl('', [Validators.required]),
+        });
+        
+        this.emailChange = this.fb.group({
+            email : new FormControl('',[Validators.required,Validators.pattern("[^ @]*@[^ @]*")])
+        })
+
         this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
         this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-            //console.log("ImageUpload:uploaded:", item, status, response);
-            this.imagePath = JSON.parse(response)[0].path_of_file
+            this.imagePath2 = JSON.parse(response)[0].path_of_file
         };
-    }
-    OnSubmit() {
-        var information = {
-            firstname: this.loginForm.value.firstname,
-            lastname: this.loginForm.value.lastname,
-            mobile_number: this.loginForm.value.mobile_number,
-            gender: this.loginForm.value.gender,
-            citizen: this.loginForm.value.citizen,
-            dob: this.loginForm.value.dob,
-            street_address: this.loginForm.value.street_address,
-            street_address2: this.loginForm.value.street_address2,
-            landmark: this.loginForm.value.landmark,
-            city: this.loginForm.value.city,
-            state: this.loginForm.value.state,
-            code: this.loginForm.value.code,
-            image: this.imagePath
-        }
-        if (localStorage.getItem('jwtToken') != null) {
-            //this.infoService.storeInformationOfPatient(information);
-        }
-        else {
-            this.router.navigate(['/signup/patient']);
-        }
     }
 
     upload() {
@@ -131,5 +149,29 @@ export class ProfileComponent {
                     },
                     (error) => alert(error))
         }
+    }
+    Save_change() {
+        var information = {
+            firstname: this.changeForm.value.firstname2,
+            lastname: this.changeForm.value.lastname2,
+            mobile_number: this.changeForm.value.phone2,
+            citizen: this.changeForm.value.country2,
+            dob: this.changeForm.value.dob2,
+            street_address: this.changeForm.value.address12,
+            street_address2: this.changeForm.value.address22,
+            city: this.changeForm.value.city2,
+            state: this.changeForm.value.state2,
+            code: this.changeForm.value.zip2,
+            image: this.imagePath2
+        }
+        this.change_profile.changeInformationOfPatient(information);
+        this.myModal.close();
+        this.changeForm.reset();
+    }
+
+    save_email(){
+        this.change_profile.change_email(this.emailChange.value);
+        this.myModal2.close();
+        this.emailChange.reset();
     }
 }
